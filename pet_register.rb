@@ -16,7 +16,7 @@ class PetRegister < Sinatra::Application
   end
   
   get '/' do
-    200
+    haml :index
   end
   
   get '/:type/breeds.json' do |type|

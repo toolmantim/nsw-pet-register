@@ -1,0 +1,3 @@
+header, section#content { width: 500px; margin: 0 auto; }
+header { background-color: #666; height: 200px; }
+section#content { background-color: #f2f2f2; }
