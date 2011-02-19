@@ -6,7 +6,7 @@ class Import
   attr_accessor :env
   
   def db
-    @db ||= Sequel.mysql "dogwars_dev", :host => '127.0.0.1', :user => 'root'
+    @db ||= Sequel.connect(ENV['DATABASE_URL'] || 'mysql://root:@localhost/dogwars_dev')
   end
   
   def create_table
