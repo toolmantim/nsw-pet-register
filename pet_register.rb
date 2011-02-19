@@ -4,6 +4,9 @@ require 'sequel'
 require 'logger'
 require './lib/import'
 class PetRegister < Sinatra::Application  
+  
+  set :haml, {:format => :html5, :attr_wrapper => '"'}
+  
   helpers do
     def singularize(string)
       s = string.to_s
