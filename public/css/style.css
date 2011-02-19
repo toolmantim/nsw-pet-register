@@ -1,0 +1,6 @@
+body { background-color: #f2f2f2; }
+.container { width: 500px; margin: 0 auto; }
+header { background-color: #666; height: 70px; padding-top: 30px; }
+section#content { background-color: #f2f2f2; padding-top: 20px }
+
+h1 { font-size: 2.4em; }

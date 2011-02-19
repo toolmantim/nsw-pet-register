@@ -1,7 +1,12 @@
 require 'sinatra'
 require 'json'
+require 'sequel'
+require 'logger'
 require './lib/import'
 class PetRegister < Sinatra::Application  
+  
+  set :haml, {:format => :html5, :attr_wrapper => '"'}
+  
   helpers do
     def singularize(string)
       s = string.to_s
@@ -14,12 +19,17 @@ class PetRegister < Sinatra::Application
   end
   
   get '/' do
-    200
+    haml :index
   end
   
   get '/:type/breeds.json' do |type|
     content_type :json
     DB[:pets].filter("type = ?", singularize(type)).group_and_count(:breed).map{|r| {r[:breed] => r[:count]} }.to_json
+  end
+  
+  get '/:type/names.json' do |type|
+    content_type :json
+    DB[:pets].filter("type = ?", singularize(type)).group_and_count(:name).map{|r| {r[:name] => r[:count]} }.to_json
   end
   
   get '/:type/breeds/:breed/postcodes.json' do |type, breed|
@@ -33,6 +43,8 @@ class PetRegister < Sinatra::Application
     end
     dataset.group_and_count(:postcode).map{|r| {r[:postcode] => r[:count]} }.to_json
   end
+  
+  
 
   get '/:type/names.json' do |type|
     content_type :json

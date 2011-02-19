@@ -6,13 +6,13 @@ class Import
   attr_accessor :env
   
   def db
-    @db ||= Sequel.mysql "dogwars_dev", :host => '127.0.0.1', :user => 'root'
+    @db ||= Sequel.connect(ENV['DATABASE_URL'] || 'mysql://root:@localhost/dogwars_dev')
   end
   
   def create_table
     db.create_table! :pets do
       primary_key :id
-      enum :type, :elements => %w( cat dog )
+      String :type
       String :name
       Integer :postcode
       String :colour
@@ -41,7 +41,7 @@ class Import
   end
   
   def index
-    db.add_index :pets, [:breed, :type]
+    db.add_index :pets, [:breed, :type, :name]
   end
   
   def import
