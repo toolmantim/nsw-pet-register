@@ -4,5 +4,5 @@ task :default => :spec
 
 desc "Import"
 task :import do
-  Import.new('dev').import
+  Import.new.import
 end
