@@ -30,7 +30,7 @@ class Import
           fields[0],
           fields[1].downcase,
           fields[2].downcase,
-          fields[3],
+          fields[3] || 0,
           fields[4],
           fields[5]
               ]
