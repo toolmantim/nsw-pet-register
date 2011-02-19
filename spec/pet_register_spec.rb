@@ -12,4 +12,9 @@ describe "Pets API" do
     get '/dogs/breeds.json'
     last_response.should be_ok
   end
+  
+  it "should return the post code list" do
+    get '/dogs/breeds/Deerhound/postcodes.json'
+    last_response.should be_ok
+  end
 end

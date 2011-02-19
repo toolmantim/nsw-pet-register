@@ -1,5 +1,5 @@
 require 'sequel'
-require 'openuri'
+require 'open-uri'
 
 class Import
   

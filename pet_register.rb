@@ -19,6 +19,13 @@ class PetRegister < Sinatra::Application
   
   get '/:type/breeds.json' do |type|
     content_type :json
-    DB[:pets].filter("type = ?", singularize(type)).group_and_count(:breed).all.to_json
+    DB[:pets].filter("type = ?", singularize(type)).group_and_count(:breed).map{|r| {r[:breed] => r[:count]} }.to_json
   end
+  
+  get '/:type/breeds/:breed/postcodes.json' do |type, breed|
+    content_type :json
+    crossbreed = params[:crossbreed] == '?' ? nil : params[:crossbreed]
+    DB[:pets].filter("type = ? and breed = ? and crossbreed = ?", singularize(type), breed, crossbreed).group_and_count(:postcode).map{|r| {r[:postcode] => r[:count]} }.to_json
+  end
+
 end
