@@ -24,7 +24,9 @@ class PetRegister < Sinatra::Application
   
   get '/:type/breeds/:breed/postcodes.json' do |type, breed|
     content_type :json
-    dataset = if params[:crossbreed] == '?'
+    dataset = if params[:crossbread].nil?
+      DB[:pets].filter("type = ? and breed = ?", singularize(type), breed)
+    if params[:crossbreed] == '?'
       DB[:pets].filter("type = ? and breed = ? and crossbreed IS NULL", singularize(type), breed)
     else
       DB[:pets].filter("type = ? and breed = ? and crossbreed = ?", singularize(type), breed, params[:crossbreed])
