@@ -12,7 +12,7 @@ class Import
   def create_table
     db.create_table! :pets do
       primary_key :id
-      enum :type, :elements => %w( cat dog )
+      String :type
       String :name
       Integer :postcode
       String :colour
