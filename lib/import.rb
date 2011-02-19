@@ -41,7 +41,7 @@ class Import
   end
   
   def index
-    db.add_index :pets, [:breed, :type]
+    db.add_index :pets, [:breed, :type, :name]
   end
   
   def import
