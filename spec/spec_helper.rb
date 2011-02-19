@@ -4,3 +4,4 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup
 require File.dirname(__FILE__) + '/../pet_register'
+require File.dirname(__FILE__) + '/../lib/pets'

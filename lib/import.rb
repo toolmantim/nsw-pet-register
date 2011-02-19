@@ -1,15 +1,12 @@
 require 'sequel'
-
+require File.dirname(__FILE__) + '/connectable'
 class Import
+  include Connectable
   
   attr_accessor :env
   
-  def initialize(env)
-    self.env = env
-  end
-  
   def db
-    @db ||= Sequel.mysql "dogwars_#{env}", :host => '127.0.0.1', :user => 'root'
+    @db ||= Sequel.mysql "dogwars_dev", :host => '127.0.0.1', :user => 'root'
   end
   
   def create_table
@@ -48,6 +45,7 @@ class Import
   end
   
   def import
+    create_database
     create_table
     insert
     index

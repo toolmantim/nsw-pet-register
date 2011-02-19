@@ -1,8 +1,15 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.5.0)
+    activesupport (3.0.4)
+    autotest-fsevent (0.2.4)
+      sys-uname
+    autotest-growl (0.2.9)
     diff-lcs (1.1.2)
     haml (3.0.25)
+    json (1.5.1)
+    mysql (2.8.1)
     rack (1.2.1)
     rack-test (0.5.7)
       rack (>= 1.0)
@@ -20,13 +27,20 @@ GEM
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
+    sys-uname (0.8.5)
     tilt (1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  ZenTest
+  activesupport
+  autotest-fsevent
+  autotest-growl
   haml
+  json
+  mysql
   rack-test
   rspec
   sequel

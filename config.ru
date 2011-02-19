@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'pet_register'
+require './pet_register'
 
 set :run, false
 set :environment, :production
