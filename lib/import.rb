@@ -34,7 +34,7 @@ class Import
           fields[4],
           fields[5]
               ]
-        p arr
+        # p arr
         db[:pets].import [:name, :type, :colour, :postcode, :breed, :crossbreed], [arr], :slice => 500
       end
     end
