@@ -1,0 +1,5 @@
+require 'rubygems'
+require 'sinatra'
+require 'rspec'
+require 'rack/test'
+require File.dirname(__FILE__) + '/../pet_register'
