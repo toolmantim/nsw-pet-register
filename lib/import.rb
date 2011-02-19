@@ -45,7 +45,6 @@ class Import
   end
   
   def import
-    create_database
     create_table
     insert
     index
