@@ -21,23 +21,23 @@ class Import
     end
   end
   
-  def records
-    filename = File.dirname(__FILE__) + '/../fixtures/appsnsw_export_with_postcode.csv'
-    File.open(filename, "rb:UTF-16LE:UTF-8") {|f| f.read}.split("\r\n").map do |l|
-      fields = l.split("\t").map {|f| f.strip}
-      [
-        fields[0],
-        fields[1].downcase,
-        fields[2].downcase,
-        fields[3],
-        fields[4],
-        fields[5]
-      ]
-    end
-  end
-  
   def insert
-    db[:pets].import [:name, :type, :colour, :postcode, :breed, :crossbreed], records, :slice => 500
+    filename = File.dirname(__FILE__) + '/../fixtures/appsnsw_export_with_postcode.csv'
+    File.open(filename, "rb:UTF-16LE:UTF-8") do |f|
+      while (l = f.gets)
+        fields = l.split("\t").map {|f| f.strip}
+        arr = [
+          fields[0],
+          fields[1].downcase,
+          fields[2].downcase,
+          fields[3],
+          fields[4],
+          fields[5]
+              ]
+        p arr
+        db[:pets].import [:name, :type, :colour, :postcode, :breed, :crossbreed], [arr], :slice => 500
+      end
+    end
   end
   
   def index

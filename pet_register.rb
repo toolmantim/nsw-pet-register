@@ -36,7 +36,7 @@ class PetRegister < Sinatra::Application
     content_type :json
     dataset = if params[:crossbread].nil?
       DB[:pets].filter("type = ? and breed = ?", singularize(type), breed)
-    if params[:crossbreed] == '?'
+    elsif params[:crossbreed] == '?'
       DB[:pets].filter("type = ? and breed = ? and crossbreed IS NULL", singularize(type), breed)
     else
       DB[:pets].filter("type = ? and breed = ? and crossbreed = ?", singularize(type), breed, params[:crossbreed])
