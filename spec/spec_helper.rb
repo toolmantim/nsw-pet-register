@@ -1,5 +1,6 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'rubygems'
-require 'sinatra'
-require 'rspec'
-require 'rack/test'
+require 'bundler'
+Bundler.setup
 require File.dirname(__FILE__) + '/../pet_register'
