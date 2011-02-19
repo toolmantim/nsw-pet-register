@@ -1,7 +1,7 @@
 require 'sequel'
-require File.dirname(__FILE__) + '/connectable'
+require 'openuri'
+
 class Import
-  include Connectable
   
   attr_accessor :env
   
