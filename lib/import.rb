@@ -14,7 +14,7 @@ class Import
       primary_key :id
       String :type
       String :name
-      Integer :postcode
+      String :postcode
       String :colour
       String :breed
       String :crossbreed
