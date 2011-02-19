@@ -29,7 +29,7 @@ class PetRegister < Sinatra::Application
   
   get '/:type/names.json' do |type|
     content_type :json
-    DB[:pets].filter("type = ?", singularize(type)).group_and_count(:name).map{|r| {r[:name] => r[:count]} }.to_json
+    DB[:pets].filter("type = ?", singularize(type)).group_and_count(:name).order(:count.desc).limit(40).map{|r| {r[:name] => r[:count]} }.to_json
   end
   
   get '/:type/breeds/:breed/postcodes.json' do |type, breed|
