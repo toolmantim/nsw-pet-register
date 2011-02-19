@@ -32,4 +32,10 @@ class PetRegister < Sinatra::Application
     dataset.group_and_count(:postcode).map{|r| {r[:postcode] => r[:count]} }.to_json
   end
 
+  get '/:type/names.json' do |type|
+    content_type :json
+    DB[:pets].filter("type = ?", singularize(type)).order(:count.desc).group_and_count(:name).limit(40).map {|r| {r[:name] => r[:count]} }.to_json
+  end
+
+
 end
