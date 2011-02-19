@@ -11,9 +11,9 @@ app = Rack::Builder.new do
   end
 end.to_app
 
-log = File.new("app.log", "a")
-STDOUT.reopen(log)
-STDERR.reopen(log)
+# log = File.new("app.log", "a")
+# STDOUT.reopen(log)
+# STDERR.reopen(log)
 
 run app
 
