@@ -23,12 +23,16 @@
               %a{:href => '#examples'} Lorem ipsum dolor sit
         %section#intro
           %h2 Introduction
-          Welcome to the New South Wales Companion Pet Registry API.  
-        %section#querying
-          %h2 Querying
-          
-          
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          %p Welcome to the New South Wales Companion Animal Register API.  This API was built for the apps4nsw developer day at the Powerhouse Museum.  We hope this API will enable interested developers to easily access local pet data to build interesting applications.
+          %p All the data on this page is in JSON so you can build your own web applications over the top of this API.
         %section#examples
           %h2 Examples
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          %h3 Names
+          %p You can access the NSW Companion Animal Register to find the most popular dog and cat names in the state of New South Wales, over the past 10 years.
+          %h4 Example: Top 40 Dog names
+          %pre /dogs/names.json
+          %h3 Breeds
+          %p You can access the NSW Companion Animal Register to find the most popular dog and cat breeds in the state of New South Wales, over the past 10 years.
+          %h4 Example: A count of all purebred dogs in NSW
+          %pre /dogs/breeds.json
+          
